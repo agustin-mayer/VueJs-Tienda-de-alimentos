@@ -1,4 +1,4 @@
-# proyecto-3-agus-vue
+# promo-iaw-vue-2
 
 ## Project setup
 ```

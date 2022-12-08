@@ -25,7 +25,7 @@ export default {
   },
   mounted() {
     fetch(
-      "https://agustinmayer99-servicio-web.herokuapp.com/producto/" +
+      "https://promo-iaw-web-service.vercel.app/producto/" +
         this.$route.params.id
     )
       .then((res) => res.json())

@@ -154,7 +154,7 @@ export default {
     };
   },
   mounted() {
-    fetch("https://agustinmayer99-servicio-web.herokuapp.com/productos")
+    fetch("https://promo-iaw-web-service.vercel.app/productos")
       .then((res) => res.json())
       .then(
         (result) => {
@@ -164,7 +164,7 @@ export default {
           this.error = error;
         }
       );
-    fetch("https://agustinmayer99-servicio-web.herokuapp.com/categorias")
+    fetch("https://promo-iaw-web-service.vercel.app/categorias")
       .then((res) => res.json())
       .then(
         (result) => {

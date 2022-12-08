@@ -63,7 +63,7 @@ export default {
   methods: {
     fetchProducts() {
       fetch(
-        `https://agustinmayer99-servicio-web.herokuapp.com/pagination?page=${this.page}&cant=${this.cant}`
+        `https://promo-iaw-web-service.vercel.app/pagination?page=${this.page}&cant=${this.cant}`
       )
         .then((res) => res.json())
         .then(
