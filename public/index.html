@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="icon" href="<%= BASE_URL %>favicon.ico">
   <title>
-    <%= htmlWebpackPlugin.options.title %>
+    Foodmay
   </title>
+  <script src="scriptNotification.js" defer></script>
 </head>
 
 <body>
@@ -16,6 +17,7 @@
         .then(reg => console.log('Registro de SW exitoso', reg))
         .catch(err => console.warn('Error al tratar de registrar el sw', err))
     }</script>
+    <button> Click</button>
   <div id="app"></div>
   <!-- built files will be auto injected -->
 </body>
