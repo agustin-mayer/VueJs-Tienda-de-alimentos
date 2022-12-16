@@ -1,8 +1,8 @@
 <template>
   <div>
     <b-navbar variant="dark" style="justify-content: space-between">
-      <div style="display: -inline-box">
-        <div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
           <b-button
             style="margin-left: 20px; border-color: darkseagreen"
             squared
@@ -11,8 +11,8 @@
             @click="goToMainView"
             >Inicio</b-button
           >
-        </div>
-        <div v-if="esFilterView()">
+        </li>
+        <li class="nav-item" v-if="esFilterView()">
           <b-button
             style="
               margin-left: 20px;
@@ -24,10 +24,9 @@
             v-b-toggle.sidebar-backdrop
             >Filtros</b-button
           >
-        </div>
-        <div v-else>
+        </li>
+        <li class="nav-item" v-else>
           <b-button
-            size="sm"
             style="
               margin-left: 20px;
               border-color: darkseagreen;
@@ -38,8 +37,20 @@
             @click="goToFilterView"
             >Filtrar productos</b-button
           >
-        </div>
-      </div>
+        </li>
+      <li class="nav-item">
+      <b-button
+        style="
+          margin-left: 20px;
+          border-color: darkseagreen;
+          vertical-align: -baseline-middle;
+        "
+        squared
+        variant="dark"
+        @click="pushNotification"
+        >Ofertas</b-button
+      ></li>
+      </ul> 
       <label
         style="
           font-size: x-large;
@@ -65,6 +76,21 @@ export default {
     },
     goToMainView() {
       if (this.$route.name != "mainView") this.$router.push("/");
+    },
+    pushNotification() {
+      Notification.requestPermission().then((perm) => {
+        if (perm === "granted") {
+          const notification = new Notification(
+            "¡Las bebidas esta semana tienen un 10% OFF!",
+            {
+              body: "El precio publicado ya tiene el descuento aplicado",
+            }
+          );
+          notification.addEventListener("error", (e) => {
+            alert(e);
+          });
+        }
+      });
     },
   },
 };
