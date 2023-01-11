@@ -3,6 +3,17 @@ const CACHE_NAME = 'foodmay-vue-cache',
     './'
   ]
 
+self.addEventListener('push', e => {
+  console.log('entre a push sw')
+  const data = e.data.json()
+  console.log(data)
+  console.log('notificacion recibida')
+  self.registration.showNotification(data.title, {
+    body: data.message,
+    icon: 'https://cdn-icons-png.flaticon.com/512/1340/1340115.png'
+  })
+})
+
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(CACHE_NAME)
