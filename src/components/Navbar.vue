@@ -1,8 +1,8 @@
 <template>
   <div>
     <b-navbar variant="dark" style="justify-content: space-between">
-      <div style="display: -inline-box">
-        <div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
           <b-button
             style="margin-left: 20px; border-color: darkseagreen"
             squared
@@ -11,8 +11,8 @@
             @click="goToMainView"
             >Inicio</b-button
           >
-        </div>
-        <div v-if="esFilterView()">
+        </li>
+        <li class="nav-item" v-if="esFilterView()">
           <b-button
             style="
               margin-left: 20px;
@@ -24,8 +24,8 @@
             v-b-toggle.sidebar-backdrop
             >Filtros</b-button
           >
-        </div>
-        <div v-else>
+        </li>
+        <li class="nav-item" v-else>
           <b-button
             size="sm"
             style="
@@ -38,8 +38,8 @@
             @click="goToFilterView"
             >Filtrar productos</b-button
           >
-        </div>
-      </div>
+        </li>
+      </ul>
       <label
         style="
           font-size: x-large;
