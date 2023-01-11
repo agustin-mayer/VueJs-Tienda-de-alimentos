@@ -153,8 +153,8 @@ export default {
       maxFilterField: "1000000",
     };
   },
-  async mounted() {
-    await fetch("https://promo-iaw-web-service.vercel.app/productos")
+  mounted() {
+    fetch("https://promo-iaw-web-service.vercel.app/productos")
       .then((res) => res.json())
       .then(
         (result) => {
@@ -164,7 +164,7 @@ export default {
           this.error = error;
         }
       );
-    await fetch("https://promo-iaw-web-service.vercel.app/categorias")
+    fetch("https://promo-iaw-web-service.vercel.app/categorias")
       .then((res) => res.json())
       .then(
         (result) => {
