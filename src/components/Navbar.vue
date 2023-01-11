@@ -1,8 +1,8 @@
 <template>
   <div>
     <b-navbar variant="dark" style="justify-content: space-between">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+      <div style="display: -inline-box">
+        <div>
           <b-button
             style="margin-left: 20px; border-color: darkseagreen"
             squared
@@ -11,8 +11,8 @@
             @click="goToMainView"
             >Inicio</b-button
           >
-        </li>
-        <li class="nav-item" v-if="esFilterView()">
+        </div>
+        <div v-if="esFilterView()">
           <b-button
             style="
               margin-left: 20px;
@@ -24,9 +24,10 @@
             v-b-toggle.sidebar-backdrop
             >Filtros</b-button
           >
-        </li>
-        <li class="nav-item" v-else>
+        </div>
+        <div v-else>
           <b-button
+            size="sm"
             style="
               margin-left: 20px;
               border-color: darkseagreen;
@@ -37,20 +38,8 @@
             @click="goToFilterView"
             >Filtrar productos</b-button
           >
-        </li>
-      <li class="nav-item">
-      <b-button
-        style="
-          margin-left: 20px;
-          border-color: darkseagreen;
-          vertical-align: -baseline-middle;
-        "
-        squared
-        variant="dark"
-        @click="pushNotification"
-        >Ofertas</b-button
-      ></li>
-      </ul> 
+        </div>
+      </div>
       <label
         style="
           font-size: x-large;
@@ -76,21 +65,6 @@ export default {
     },
     goToMainView() {
       if (this.$route.name != "mainView") this.$router.push("/");
-    },
-    pushNotification() {
-      Notification.requestPermission().then((perm) => {
-        if (perm === "granted") {
-          const notification = new Notification(
-            "¡Las bebidas esta semana tienen un 10% OFF!",
-            {
-              body: "El precio publicado ya tiene el descuento aplicado",
-            }
-          );
-          notification.addEventListener("error", (e) => {
-            alert(e);
-          });
-        }
-      });
     },
   },
 };
