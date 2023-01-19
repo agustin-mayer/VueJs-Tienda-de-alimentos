@@ -16,7 +16,7 @@ function urlBase64ToUint8Array(base64String) {
 }
 
 //esto envia la subscripcion
-const subscription = async () => {
+const subscripcion = async () => {
     if ('serviceWorker' in navigator) {
         // Service Worker
         const register = await navigator.serviceWorker.register('/sw.js', {
@@ -43,4 +43,4 @@ const subscription = async () => {
 }
 
 
-subscription()
+subscripcion()
