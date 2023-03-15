@@ -52,7 +52,9 @@ self.addEventListener('fetch', e => {
           var responseToCache = response.clone();
           caches.open(CACHE_NAME)
             .then(function (cache) {
-              //cache.put(e.request, responseToCache);
+              if (e.request.method === 'GET' || e.request.method === 'HEAD') {
+              cache.put(e.request, responseToCache);
+            }
             });
           return response;
         }
