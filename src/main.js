@@ -9,7 +9,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { BootstrapVue } from 'bootstrap-vue'
 import { BootstrapVueIcons } from 'bootstrap-vue'
 import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
-import './registerServiceWorker'
+//import './registerServiceWorker'
 
 Vue.use(BootstrapVueIcons)
 Vue.use(BootstrapVue)
