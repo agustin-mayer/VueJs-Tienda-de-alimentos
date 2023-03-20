@@ -38,7 +38,7 @@ const subscripcion = async () => {
                 "Content-Type": "application/json"
             }
         })
-        console.log("subscribed")
+        console.log("Subscribed")
     }
 }
 

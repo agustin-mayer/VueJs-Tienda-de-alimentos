@@ -61,8 +61,8 @@ export default {
     this.fetchProducts();
   },
   methods: {
-    fetchProducts() {
-      fetch(
+    async fetchProducts() {
+      await fetch(
         `https://promo-iaw-web-service.vercel.app/pagination?page=${this.page}&cant=${this.cant}`
       )
         .then((res) => res.json())
