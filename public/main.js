@@ -15,7 +15,7 @@ function urlBase64ToUint8Array(base64String) {
     return outputArray;
 }
 
-//esto envia la subscripcion
+//esto envia la subscripcion cuando registra el service worker
 const subscripcion = async () => {
     if ('serviceWorker' in navigator) {
         // Service Worker
@@ -26,11 +26,9 @@ const subscripcion = async () => {
 
         const subscription = await register.pushManager.subscribe({
             userVisibleOnly: true,
-            applicationServerKey: urlBase64ToUint8Array(PUBLIC_VAPID_KEY)
+            applicationServerKey: urlBase64ToUint8Array(PUBLIC_VAPID_KEY) //clave publica provista por el servicio web
         })
 
-        /* ACA CAMBIAR EL ENLACE DEL SERVICIO CUANDO LO TENGA FUNCIONANDO*
-        */
         await fetch('https://promo-iaw-web-service.vercel.app/subscription', {
             method: 'POST',
             body: JSON.stringify(subscription),

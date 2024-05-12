@@ -3,6 +3,7 @@ const CACHE_NAME = 'foodmay-vue-cache',
     './'
   ]
 
+//cuando escucha el evento push, muestra la notificacion
 self.addEventListener('push', e => {
   const data = e.data.json()
   console.log(data)
