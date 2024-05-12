@@ -3,6 +3,17 @@ const CACHE_NAME = 'foodmay-vue-cache',
     './'
   ]
 
+//cuando escucha el evento push, muestra la notificacion
+self.addEventListener('push', e => {
+  const data = e.data.json()
+  console.log(data)
+  console.log('Notificacion recibida')
+  self.registration.showNotification(data.title, {
+    body: data.message,
+    icon: 'https://cdn-icons-png.flaticon.com/512/1340/1340115.png'
+  })
+})
+
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(CACHE_NAME)
@@ -42,7 +53,9 @@ self.addEventListener('fetch', e => {
           var responseToCache = response.clone();
           caches.open(CACHE_NAME)
             .then(function (cache) {
+              if (e.request.method === 'GET' || e.request.method === 'HEAD') {
               cache.put(e.request, responseToCache);
+            }
             });
           return response;
         }

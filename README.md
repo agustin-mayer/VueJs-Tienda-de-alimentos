@@ -1,4 +1,4 @@
-# promo-iaw-vue-2
+# Foodmay
 
 ## Project setup
 ```
